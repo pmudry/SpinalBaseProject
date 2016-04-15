@@ -20,7 +20,7 @@ package DemoCode
 
 import spinal.core._
 
-class AndGATE extends Component {
+class AND_Gate extends Component {
 
   /**
     * This is the component definition that corresponds to
@@ -36,9 +36,9 @@ class AndGATE extends Component {
   io.c := io.a & io.b
 }
 
-object AndGATE {
+object AND_Gate {
   def main(args: Array[String]) {
-    SpinalVhdl(new AndGATE)
+    SpinalVhdl(new AND_Gate)
   }
 }
 
