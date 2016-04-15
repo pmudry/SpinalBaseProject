@@ -16,31 +16,29 @@
  * License along with this library.
  */
 
-package MyCode
+package DemoCode
 
 import spinal.core._
-import spinal.lib._
 
-class MyTopLevel extends Component {
+class AndGATE extends Component {
+
+  /**
+    * This is the component definition that corresponds to
+    * the VHDL entity of the component
+    */
   val io = new Bundle {
-    val cond0 = in Bool
-    val cond1 = in Bool
-    val flag = out Bool
-    val state = out UInt(8 bit)
-  }
-  val counter = Reg(UInt(8 bit)) init(0)
-
-  when(io.cond0){
-    counter := counter + 1
+    val a = in Bool
+    val b = in Bool
+    val c = out Bool
   }
 
-  io.state := counter
-  io.flag := (counter === 0) | io.cond1
+  // Here we define some asynchronous logic
+  io.c := io.a & io.b
 }
 
-object MyTopLevel {
+object AndGATE {
   def main(args: Array[String]) {
-    SpinalVhdl(new MyTopLevel)
+    SpinalVhdl(new AndGATE)
   }
 }
 
