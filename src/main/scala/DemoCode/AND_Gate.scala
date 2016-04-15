@@ -37,6 +37,7 @@ class AND_Gate extends Component {
 }
 
 object AND_Gate {
+  // Let's go
   def main(args: Array[String]) {
     SpinalVhdl(new AND_Gate)
   }
