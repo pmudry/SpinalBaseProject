@@ -22,19 +22,19 @@ import spinal.core._
 
 class ConditionalCounter extends Component {
   val io = new Bundle {
-    val cond0 = in Bool
-    val cond1 = in Bool
+    val count = in Bool
+    val zero = in Bool
     val flag = out Bool
     val state = out UInt (8 bit)
   }
   val counter = Reg(UInt(8 bit)) init (0)
 
-  when(io.cond0) {
+  when(io.count) {
     counter := counter + 1
   }
 
   io.state := counter
-  io.flag := (counter === 0) | io.cond1
+  io.flag := (counter === 0) | io.zero
 }
 
 object ConditionalCounter {
